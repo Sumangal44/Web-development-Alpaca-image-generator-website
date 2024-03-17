@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+@media (max-width: 412px) {
+  body * {
+    display: none;
+  }
+
+  body::before {
+    content: "Oh no! Your screen is too narrow. \A \A Make the window wider or rotate your device to continue using this app.";
+    display: block;
+    white-space: pre-wrap;
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 732px) {
+  div#flex {
+    display: block;
+  }
+
+  div.expand::before {
+    width: calc(100vw - 60px);
+  }
+
+  div#image {
+    margin-bottom: 0px;
+  }
+
+  div#image-container {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+
+  div#buttons {
+    width: auto;
+    flex: 1;
+  }
+
+  div#buttons button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  div#image {
+    --length: min(45vw, 720px, 60vh);
+    width: var(--length);
+    height: var(--length);
+  }
+
+  #image img {
+    width: var(--length);
+    height: var(--length);
+  }
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 10px 20px;
+  background-color: #faeaeb;
+  width: 100vw;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+  margin: 8px;
+  color: #7a06e0;
+  line-height: 1.2em;
+  text-shadow: 0.5px 0 #111111;
+}
+
+#image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 28px;
+  margin-bottom: 20px;
+  pointer-events: none;
+  overflow: hidden;
+  position: relative;
+}
+
+#image-container {
+  width: max(40vw, 301px);
+}
+
+#buttons {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  position: absolute;
+}
+
+#flex {
+  display: flex;
+  gap: 20px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  display: none;
+}
+
+#options {
+  flex: 1;
+}
+
+.expand {
+  max-height: 54.5px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: max-height 1s, border-radius 1s;
+  background-color: #0d071d;
+  border-radius: 28px;
+  border: 2px solid #570795;
+  cursor: pointer;
+}
+
+span.heading {
+  font-size: 1.75em;
+  font-weight: 600;
+  color: #0b0b0b;
+  height: 54.5px;
+  box-sizing: border-box;
+  display: block;
+  background-color: #3f0370;
+  padding: 10px 20px;
+  transition: all 1s;
+}
+
+.expand::before {
+  content: "+";
+  display: block;
+  position: absolute;
+  color: #faeaeb;
+  font-size: 2em;
+  text-align: right;
+  box-sizing: border-box;
+  font-weight: 600;
+  right: 40px;
+  line-height: 54.5px;
+}
+
+.expand:focus {
+  max-height: 193px;
+
+  border-radius: 28px;
+}
+
+#backgrounds:focus {
+  max-height: 442px;
+}
+
+:focus-visible {
+  outline: 1px solid rgb(95, 6, 139);
+  box-shadow: 0 0 5px 2px rgb(114, 11, 173);
+}
+
+.expand:focus::before {
+  content: "â";
+}
+
+.expand:hover span.heading,
+.expand:focus span.heading {
+  background-color: #610899;
+}
+
+.button-container {
+  padding: 5px 10px;
+  text-align: center;
+  cursor: default;
+}
+
+.button-container input {
+  appearance: none;
+  display: none;
+}
+
+.option {
+  display: inline-block;
+  padding: 5px 20px;
+  border: 2px solid #560895;
+  color: #5c0aae;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 5px 0;
+  text-align: center;
+}
+
+.option:hover {
+  border-color: #5d09b1;
+  color: #4b07b1;
+}
+
+.background {
+  width: 58px;
+}
+
+input[type="radio"]:checked + .option {
+  background-color: #5708a6;
+  color: #faeaeb;
+}
+
+button {
+  background-color: #5708a6;
+  font-size: 1.4em;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  border-radius: 50px;
+  border: none;
+  color: #faeaeb;
+  padding: 10px 35px;
+}
+
+button:hover {
+  background-color: #0e0d10;
+  cursor: pointer;
+}
+
+#download-link,
+canvas {
+  display: none;
+}

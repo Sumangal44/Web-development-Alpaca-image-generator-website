@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Alpaca Avatar Picker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.75" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </head>
+
+  <body>
+    <h1>ALPACA GENERATOR</h1>
+    <div id="flex">
+      <div id="image-container">
+        <div id="image">
+          <image id="backgrounds" src="" />
+          <image id="ears" src="" />
+          <image id="neck" src="" />
+          <image id="nose" src="images/nose.png" />
+          <image id="mouth" src="" />
+
+          <image id="hair" src="" />
+          <image id="accessories" src="" />
+          <image id="eyes" src="" />
+          <image id="leg" src="" />
+        </div>
+        <div id="buttons">
+          <button onclick="random()" tabindex="0">Random</button>
+          <button onclick="download()" tabindex="0">Save</button>
+        </div>
+      </div>
+      <div id="options">
+        <div id="backgrounds" class="expand" tabindex="0" autofocus>
+          <span class="heading">Backgrounds</span>
+          <div class="button-container">
+            <input
+              type="radio"
+              id="blue1"
+              name="backgrounds"
+              value="images/backgrounds/blue50.png"
+            />
+            <label class="option backgrounds" for="blue1">blue 1</label>
+            <input
+              type="radio"
+              id="blue2"
+              name="backgrounds"
+              value="images/backgrounds/blue60.png"
+              checked
+            />
+            <label class="option backgrounds" for="blue2">blue 2</label>
+            <input
+              type="radio"
+              id="blue3"
+              name="backgrounds"
+              value="images/backgrounds/blue70.png"
+            />
+            <label class="option backgrounds" for="blue3">blue 3</label>
+            <input
+              type="radio"
+              id="blue4"
+              name="backgrounds"
+              value="images/backgrounds/darkblue30.png"
+            />
+            <label class="option backgrounds" for="blue4">blue 4</label>
+            <input
+              type="radio"
+              id="blue5"
+              name="backgrounds"
+              value="images/backgrounds/darkblue50.png"
+            />
+            <label class="option backgrounds" for="blue5">blue 5</label>
+            <input
+              type="radio"
+              id="blue6"
+              name="backgrounds"
+              value="images/backgrounds/darkblue70.png"
+            />
+            <label class="option backgrounds" for="blue6">blue 6</label>
+            <input
+              type="radio"
+              id="green1"
+              name="backgrounds"
+              value="images/backgrounds/green50.png"
+            />
+            <label class="option backgrounds" for="green1">green 1</label>
+            <input
+              type="radio"
+              id="green2"
+              name="backgrounds"
+              value="images/backgrounds/green60.png"
+            />
+            <label class="option backgrounds" for="green2">green 2</label>
+            <input
+              type="radio"
+              id="green3"
+              name="backgrounds"
+              value="images/backgrounds/green70.png"
+            />
+            <label class="option backgrounds" for="green3">green 3</label>
+            <input
+              type="radio"
+              id="grey1"
+              name="backgrounds"
+              value="images/backgrounds/grey40.png"
+            />
+            <label class="option backgrounds" for="grey1">grey 1</label>
+            <input
+              type="radio"
+              id="grey2"
+              name="backgrounds"
+              value="images/backgrounds/grey70.png"
+            />
+            <label class="option backgrounds" for="grey2">grey 2</label>
+            <input
+              type="radio"
+              id="grey3"
+              name="backgrounds"
+              value="images/backgrounds/grey80.png"
+            />
+            <label class="option backgrounds" for="grey3">grey 3</label>
+            <input
+              type="radio"
+              id="red1"
+              name="backgrounds"
+              value="images/backgrounds/red50.png"
+            />
+            <label class="option backgrounds" for="red1">red 1</label>
+            <input
+              type="radio"
+              id="red2"
+              name="backgrounds"
+              value="images/backgrounds/red60.png"
+            />
+            <label class="option backgrounds" for="red2">red 2</label>
+            <input
+              type="radio"
+              id="red3"
+              name="backgrounds"
+              value="images/backgrounds/red70.png"
+            />
+            <label class="option backgrounds" for="red3">red 3</label>
+            <input
+              type="radio"
+              id="yellow1"
+              name="backgrounds"
+              value="images/backgrounds/yellow50.png"
+            />
+            <label class="option backgrounds" for="yellow1">yellow 1</label>
+            <input
+              type="radio"
+              id="yellow2"
+              name="backgrounds"
+              value="images/backgrounds/yellow60.png"
+            />
+            <label class="option backgrounds" for="yellow2">yellow 2</label>
+            <input
+              type="radio"
+              id="yellow3"
+              name="backgrounds"
+              value="images/backgrounds/yellow70.png"
+            />
+            <label class="option backgrounds" for="yellow3">yellow 3</label>
+          </div>
+        </div>
+        <div id="neck" class="expand" tabindex="0">
+          <span class="heading">Neck</span>
+          <div class="button-container">
+            <input
+              type="radio"
+              id="bend-backward"
+              name="neck"
+              value="images/neck/bend-backward.png"
+            />
+            <label class="option neck" for="bend-backward">bend backward</label>
+            <input
+              type="radio"
+              id="bend-forward"
+              name="neck"
+              value="images/neck/bend-forward.png"
+            />
+            <label class="option neck" for="bend-forward">bend forward</label>
+            <input
+              type="radio"
+              id="default-neck"
+              name="neck"
+              value="images/neck/default.png"
+              checked
+            />
+            <label class="option neck" for="default-neck">default</label>
+            <input
+              type="radio"
+              id="thick"
+              name="neck"
+              value="images/neck/thick.png"
+            />
+            <label class="option neck" for="thick">thick</label>
+          </div>
+        </div>
+        <div id="mouth" class="expand" tabindex="0">
+          <span class="heading">Mouth</span>
+          <div class="button-container">
+            <input
+              type="radio"
+              id="astonished"
+              name="mouth"
+              value="images/mouth/astonished.png"
+            />
+            <label class="option mouth" for="astonished">astonished</label>
+            <input
+              type="radio"
+              id="eating"
+              name="mouth"
+              value="images/mouth/eating.png"
+            />
+            <label class="option mouth" for="eating">eating</label>
+            <input
+              type="radio"
+              id="defaultmouth"
+              name="mouth"
+              value="images/mouth/default.png"
+              checked
+            />
+            <label class="option mouth" for="defaultmouth">default</label>
+            <input
+              type="radio"
+              id="laugh"
+              name="mouth"
+              value="images/mouth/laugh.png"
+            />
+            <label class="option mouth" for="laugh">laugh</label>
+            <input
+              type="radio"
+              id="tongue"
+              name="mouth"
+              value="images/mouth/tongue.png"
+            />
+            <label class="option mouth" for="tongue">tongue</label>
+          </div>
+        </div>
+        <div id="ears" class="expand" tabindex="0">
+          <span class="heading">Ears</span>
+          <div class="button-container">
+            <input
+              type="radio"
+              id="tilt-backward-ears"
+              name="ears"
+              value="images/ears/tilt-backward.png"
+            />
+            <label class="option ears" for="tilt-backward-ears"
+              >tilt backward</label
+            >
+            <input
+              type="radio"
+              id="tilt-forward-ears"
+              name="ears"
+              value="images/ears/tilt-forward.png"
+            />
+            <label class="option ears" for="tilt-forward-ears"
+              >tilt forward</label
+            >
+            <input
+              type="radio"
+              id="default-ears"
+              name="ears"
+              value="images/ears/default.png"
+              checked
+            />
+            <label class="option ears" for="default-ears">default</label>
+          </div>
+        </div>
+        <div id="hair" class="expand" tabindex="0">
+          <span class="heading">Hair</span>
+          <div class="button-container">
+            <input
+              type="radio"
+              id="bangs"
+              name="hair"
+              value="images/hair/bangs.png"
+            />
+            <label class="option hair" for="bangs">bangs</label>
+            <input
+              type="radio"
+              id="curls"
+              name="hair"
+              value="images/hair/curls.png"
+            />
+            <label class="option hair" for="curls">curls</label>
+            <input
+              type="radio"
+              id="default-hair"
+              name="hair"
+              value="images/hair/default.png"
+              checked
+            />
+            <label class="option hair" for="default-hair">default</label>
+            <input
+              type="radio"
+              id="elegant"
+              name="hair"
+              value="images/hair/elegant.png"
+            />
+            <label class="option hair" for="elegant">elegant</label>
+            <input
+              type="radio"
+              id="fancy"
+              name="hair"
+              value="images/hair/fancy.png"
+            />
+            <label class="option hair" for="fancy">fancy</label>
+            <input
+              type="radio"
+              id="quiff"
+              name="hair"
+              value="images/hair/quiff.png"
+            />
+            <label class="option hair" for="quiff">quiff</label>
+            <input
+              type="radio"
+              id="short"
+              name="hair"
+              value="images/hair/short.png"
+            />
+            <label class="option hair" for="short">short</label>
+          </div>
+        </div>
+        <div id="eyes" class="expand" tabindex="0">
+          <span class="heading">Eyes</span>
+          <div class="button-container">
+            <input
+              type="radio"
+              id="angry"
+              name="eyes"
+              value="images/eyes/angry.png"
+            />
+            <label class="option eyes" for="angry">angry</label>
+            <input
+              type="radio"
+              id="naughty"
+              name="eyes"
+              value="images/eyes/naughty.png"
+            />
+            <label class="option eyes" for="naughty">naughty</label>
+            <input
+              type="radio"
+              id="default-eyes"
+              name="eyes"
+              value="images/eyes/default.png"
+              checked
+            />
+            <label class="option eyes" for="default-eyes">default</label>
+            <input
+              type="radio"
+              id="panda"
+              name="eyes"
+              value="images/eyes/panda.png"
+            />
+            <label class="option eyes" for="panda">panda</label>
+            <input
+              type="radio"
+              id="smart"
+              name="eyes"
+              value="images/eyes/smart.png"
+            />
+            <label class="option eyes" for="smart">smart</label>
+            <input
+              type="radio"
+              id="star"
+              name="eyes"
+              value="images/eyes/star.png"
+            />
+            <label class="option eyes" for="star">star</label>
+          </div>
+        </div>
+        <div id="leg" class="expand" tabindex="0">
+          <span class="heading">Leg</span>
+          <div class="button-container">
+            <input
+              type="radio"
+              id="bubble-tea"
+              name="leg"
+              value="images/leg/bubble-tea.png"
+            />
+            <label class="option leg" for="bubble-tea">bubble tea</label>
+            <input
+              type="radio"
+              id="cookie"
+              name="leg"
+              value="images/leg/cookie.png"
+            />
+            <label class="option leg" for="cookie">cookie</label>
+            <input
+              type="radio"
+              id="default-leg"
+              name="leg"
+              value="images/leg/default.png"
+              checked
+            />
+            <label class="option leg" for="default-leg">default</label>
+            <input
+              type="radio"
+              id="game-console"
+              name="leg"
+              value="images/leg/game-console.png"
+            />
+            <label class="option leg" for="game-console">game console</label>
+            <input
+              type="radio"
+              id="tilt-backward-leg"
+              name="leg"
+              value="images/leg/tilt-backward.png"
+            />
+            <label class="option leg" for="tilt-backward-leg"
+              >tilt backward</label
+            >
+            <input
+              type="radio"
+              id="tilt-forward-leg"
+              name="leg"
+              value="images/leg/tilt-forward.png"
+            />
+            <label class="option leg" for="tilt-forward-leg"
+              >tilt forward</label
+            >
+          </div>
+        </div>
+        <div id="accessories" class="expand" tabindex="0">
+          <span class="heading">Accessories</span>
+          <div class="button-container">
+            <input
+              type="radio"
+              id="earings"
+              name="accessories"
+              value="images/accessories/earings.png"
+            />
+            <label class="option accessories" for="earings">earings</label>
+            <input
+              type="radio"
+              id="flower"
+              name="accessories"
+              value="images/accessories/flower.png"
+            />
+            <label class="option accessories" for="flower">flower</label>
+            <input
+              type="radio"
+              id="none"
+              name="accessories"
+              value="images/accessories/none.png"
+            />
+            <label class="option accessories" for="none">none</label>
+            <input
+              type="radio"
+              id="glasses"
+              name="accessories"
+              value="images/accessories/glasses.png"
+            />
+            <label class="option accessories" for="glasses">glasses</label>
+            <input
+              type="radio"
+              id="headphones"
+              name="accessories"
+              value="images/accessories/headphones.png"
+              checked
+            />
+            <label class="option accessories" for="headphones"
+              >headphones</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
